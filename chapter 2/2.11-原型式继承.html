@@ -28,15 +28,11 @@
 	};
 
 	var newBook = inheritObject(book);
-	newBook.name = "ajax";
+	var otherBook = inheritObject(book);
 	newBook.alikeBook.push("xml");
 
-	var otherBook = inheritObject(book);
-	otherBook.name = "oherBook";
-	otherBook.alikeBook.push("node");
-
-	console.log(newBook.name); //ajax
-	console.log(otherBook.name);
+	console.log(newBook.alikeBook);
+	console.log(otherBook.alikeBook);
 
 </script>
 </html>

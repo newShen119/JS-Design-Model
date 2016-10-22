@@ -1,1 +1,35 @@
-2.12-寄生式继承.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+
+	function inheritObject(obj) {
+		function F() {};
+		F.prototype = obj;
+		return new F();
+	};
+
+	//声明基对象
+	var book = {
+		name: "book",
+		alikeBook: ["css", "js", "html"]
+	};
+
+	function createBook(obj) {
+		var newObj = new inheritObject(obj);
+		newObj.getName = function() {
+			return name;
+		};
+		return newObj;
+	};
+
+	var newBook = createBook(book);
+	console.log(newBook);
+</script>
+</html>
