@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+
+	//普通对象 || object
+	var people = {
+		name: "gao",
+		age: 25
+	};
+
+	//构造函数 || object
+	var Book = function(id, bookName, price) {
+		this.id = id;
+		this.bookName = bookName;
+		this.price = price;
+	};
+
+	// 为Book.prototype一个一个的添加方法
+	Book.prototype.display = function() {
+		console.log(this.price);
+	};
+
+
+	//直接讲一个对象赋值给Book.prototype || 会覆盖原来的值
+	Book.prototype = {
+		display: function() {
+			console.log(this.id);
+		},
+	};
+
+
+	var book = new Book(555, "js", 888);
+	book.display();
+
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+
+	function inheritObject(o) {
+
+		//声明一个过渡函数对象
+		function F() {};
+
+		//过渡对象的原型对象继承父对象
+		F.prototype = o;
+
+		//返回过渡对象的一个实例，该实例的原型继承了父对象
+		return new F();
+
+	};
+
+	var book = {
+		name: "js",
+		alikeBook: ["css", "html"]
+	};
+
+	var newBook = inheritObject(book);
+	newBook.name = "ajax";
+	newBook.alikeBook.push("xml");
+
+	var otherBook = inheritObject(book);
+	otherBook.name = "oherBook";
+	otherBook.alikeBook.push("node");
+
+	console.log(newBook.name); //ajax
+	console.log(otherBook.name);
+
+</script>
+</html>
