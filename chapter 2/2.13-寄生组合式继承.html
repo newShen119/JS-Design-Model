@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	
+	// 传入一个对象 => 返回一个对象 || 返回的对象的 _proto_ 指向传入的对象
+	function inheritObject(obj) {
+		function F() {};
+		F.prototype = obj;
+		return new F();
+	};
+
+	// 传入一个父类 一个子类 || 子类的原型改变为父类的原型
+	function inheritPrototype(subClass, superClass) {
+		//复制一份父类的原型副本保存在变量中
+		var p = inheritObject(superClass.prototype);
+		//修正由于原型重写导致constructor属性被改
+		p.constructor = subClass;
+		subClass.prototype = p;
+	};
+
+	//定义父类
+	function SuperClass(name){
+		this.name = name;
+		this.color = ["red", "blue", "green"];	
+	};
+
+	//定义父类的原型方法
+	SuperClass.prototype.getName = function(){
+		console.log(this.name);
+	};
+
+	//定义子类
+	function SubClass(name, time) {
+		//构造函数继承
+		SuperClass.call(this,name);
+		//子类新增属性
+		this.time = time;
+	};
+
+	//寄生式继承父类原型
+	inheritPrototype(SubClass, SuperClass);
+
+	//子类新增原型方法
+	SubClass.prototype.getTime = function() {
+		console.log(this.time);
+	};
+
+	var obj1 = new SubClass("JS",2015);
+	var obj2 = new SubClass("CSS",2016);
+
+	obj1.color.push("yelow");
+
+	console.log(obj1.color);
+	console.log(obj2.color);
+
+</script>
+</html>
