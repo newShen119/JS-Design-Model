@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	
+	//单继承，属性复制
+	var extend = function(target, source) {
+		for( var attr in source){
+			target[attr] = source[attr];
+		};
+		return target;
+	};
+
+	var book = {
+		name: "js",
+		alike: ["bootstrap", "php"]
+	};
+
+	var anotherBook = {
+		color: "blue",
+	};
+
+	extend(anotherBook, book);
+	console.log(anotherBook);
+
+	anotherBook.alike.push("ajax");
+	anotherBook.name = "java";
+
+	console.log(anotherBook);
+	console.log(book);
+
+
+</script>
+</html>

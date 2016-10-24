@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	
+	//多继承，属性复制
+	var extend = function() {
+
+		var i = 1,
+			len = arguments.length,
+			target = arguments[0],
+			arg;
+
+		for(; i < len; i++) {
+			arg = arguments[i];
+			for(var attr in arg) {
+				target[attr] = arg[attr];
+			};
+		};
+
+		return target;
+	};
+
+	var obj1 = {
+		name: "js"
+	};
+
+	var obj2 = {
+		age: 5
+	};
+
+	var obj3 = {
+		say: function(){
+			alert(1);
+		}
+	};
+
+	extend(obj1,obj2,obj3);
+	console.log(obj1);
+
+	// 将它绑定到原生对象Object上
+	Object.prototype.extend = function() {
+
+		var i = 0,
+			len = arguments.length,
+			arg;
+
+		for(; i < len; i++) {
+			arg = arguments[i];
+			for(var attr in arg) {
+				this[attr] = arg[attr];
+			};
+		};
+	};
+
+	var box1 = {
+		name: "gaoxiong",
+	};
+
+	var box2 = {
+		age: 23
+	};
+
+	var box3 = {
+		say: function(){
+			alert(this.name);
+		},
+	};
+
+	box3.extend(box1, box2);
+	console.log(box3);
+	
+</script>
+</html>
