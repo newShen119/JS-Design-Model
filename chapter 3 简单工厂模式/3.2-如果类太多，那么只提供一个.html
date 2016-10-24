@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	
+	//篮球基类
+	var Baseketball = function() {
+		this.intro = "乔丹";
+	}
+
+	Baseketball.prototype = {
+		getMember: function() {
+			console.log("需要5个人");
+		},
+		getBallSize: function() {
+			console.log("篮球很大");
+		}
+	};
+
+	//足球基类
+	function Football(){
+		this.intro = "C Luo";
+	};
+
+	Football.prototype.getMember = function() {
+		console.log("需要11个人");
+	}
+
+	Football.prototype.getBallSize = function() {
+		console.log("足球很大");
+	}
+
+
+	//运动工厂
+	var sportsFactory = function(name) {
+		switch(name) {
+			case "NBA":
+				return new Baseketball();
+			case "worldCup":
+				return new Football();
+		};
+	};
+
+	//使用运动商店
+	var football = sportsFactory('worldCup');
+	console.log(football.constructor);
+	console.log(football.intro);
+
+	
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	
+	//简单工厂模式
+	function createBook(name, time, type) {
+		var o = new Object();
+		o.name = name;
+		o.time = time;
+		o.type = type;
+		o.getName = function() {
+			console.log(this.name);
+		};
+		return o;
+	}
+
+	var book1 = createBook("JS", 2015, "CSS");
+	var book2 = createBook("HTML", 2016, "AJAX");
+
+	//简单工厂模式
+	function createPop(type, text) {
+		var o = new Object();
+		o.content = text;
+		o.show = function() {
+			console.log(1);
+		};
+		if (type == "alert") {
+			console.log("alert");
+		};
+		if (type == "prompt") {
+			console.log("prompt");
+		};
+		if(type == "confirm") {
+			console.log("confirm");
+		};
+	};
+
+	var userNameAlert = createPop("alert","用户名只能是26个字母或数字");
+</script>
+</html>

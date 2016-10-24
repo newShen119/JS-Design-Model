@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>简单工厂模式，又叫静态工厂方法，由一个工厂对象决定创建某一种产品对象（类的实例），主要用来创建一类对象</h1>
+</body>
+<script type="text/javascript">
+
+	var LoginAlert = function(text) {
+		this.content = text;
+	}
+
+	LoginAlert.prototype.show = function() {
+		//显示提示框！
+		alert(this.content);
+	};
+
+	var userNameAlert = new LoginAlert("用户名不能多于16个字母或数字");
+	userNameAlert.show();
+
+	var passwordAlert = new LoginAlert("输入的密码不正确");
+	passwordAlert.show();
+
+	var LoginComfirm = function(text) {
+		this.content = text
+	};
+
+	LoginComfirm.prototype.show = function() {
+		//显示提示框 || 但是在提示框里面需要加入一个注册按钮
+		alert(this.content);
+	};
+
+	var loginFailConfirm = new LoginComfirm("您的用户名不存在，情重新输入!");
+	loginFailConfirm.show();
+
+	// 随着需求的不断增加，写的类会越来越多，出现了问题。那么怎么办呢？只提供过一个！见下小节
+
+</script>
+</html>
