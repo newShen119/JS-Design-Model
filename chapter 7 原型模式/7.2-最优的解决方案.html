@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+
+	// 图片轮播基类
+	var LoopImages = function(imgArr, container){
+		this.imagesArray = imgArr;    //轮播图片数组
+		this.container = container;   //轮播图片容器
+	};
+
+	LoopImages.prototype = {
+
+		//创建轮播图片
+		createImage: function(){
+			console.log('LoopImages createImage function');
+		},
+
+		//切换下一张图片
+		changeImage: function(){
+			console.log('LoopImages changeImage function');
+		}
+	};
+
+	// 上下滑动切换类
+	var SliderLoopImg = function(imgArr, container){
+		// 构造函数继承
+		LoopImages.call(this, imgArr, container);
+	};
+
+	// 原型俩继承
+	SliderLoopImg.prototype = new LoopImages();
+
+	// 方法重写
+	SliderLoopImg.prototype.changeImage = function(){
+		console.log('SliderLoopImg changeImage function');
+	};
+	
+	// 渐隐切换类
+	var FadeLoopImg = function(imgArr, container, arrow){
+		// 构造函数继承
+		LoopImages.call(this,imgArr, container);
+		// 添加新变量
+		this.arrow = arrow;
+	};
+
+	// 原型继承
+	FadeLoopImg.prototype = new LoopImages();
+
+	// 方法改写
+	FadeLoopImg.prototype.changeImage = function(){
+
+		console.log('FadeLoopImg changeImage function');
+
+	};
+
+	var fadeImg = new FadeLoopImg([1,2,3],'slider','arrow');
+
+	console.log(fadeImg)
+
+</script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+
+	// 图片轮播 基类
+	var LoopImages = function(imgArr, container){
+		this.imagesArray = imgArr;           //轮播图片数组
+		this.container = container;          //轮播图片容器
+		this.createImage = function(){};     //创建轮播图片
+		this.changeImage = function(){};     //切换下一张图
+	};
+
+	//左右滑动
+	var SliderLoopImg = function(imgArr, container){
+		// 伪造继承图片轮播基类
+		LoopImages.call(this, imgArr, container);
+		//方法重写
+		this.chageImage = function(){
+			console.log('SLiderLoopImg changeImage function');
+		};
+	};
+
+	//渐隐切换类
+	var FadeLoopImg = function(imgArr, container, arrow){
+		// 伪造继承图片轮播基类
+		LoopImages.call(this, imgArr, arrow);
+		this.arrow = arrow;
+		this.changeImage = function(){
+			console.log('FadeLoopIamge changeImg function');
+		};
+	};
+
+	// 渐隐切换类的 实例化
+	var fadeImg = new FadeLoopImg([
+			'01.png',
+			'02.png'
+		],'slider',[
+			'left.png',
+			'right.png',
+	]);
+
+	console.log(fadeImg); 
+
+	//缺点：代码没能够复用 => 比较占用内存
+
+</script>
+</html>
