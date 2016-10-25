@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>抽象工厂是用来创建子类的</h1>
+</body>
+<script type="text/javascript">
+
+	//抽象工厂方法
+	var VehicleFactory = function(subType, superType){
+		console.log(VehicleFactory[superType]);
+		//判断抽象工厂中是否有该抽象类
+		if( typeof VehicleFactory[superType] === 'function' ){
+			//缓存类
+			function F(){};
+			//继承父类属性和方法
+			F.prototype = new VehicleFactory[superType]();
+			subType.constructor = subType;
+			subType.prototype = new F();
+		} else {
+			//不存在改抽象类跑出错误
+			throw new Error("未创建该抽象类");
+		};
+	};
+
+	// 小汽车抽象类
+	VehicleFactory.Car = function(){
+		this.type = 'Car';
+	};
+	VehicleFactory.Car.prototype = {
+		getPrice: function(){
+			return new Error("抽象方法不能调用");
+		},
+		getSpeed: function(){
+			return new Error("抽象方法不能调用");
+		}
+	};
+
+	// 公交车抽象类
+	VehicleFactory.Bus = function(){
+		this.type = "bus";
+	};
+
+	VehicleFactory.Bus.prototype = {
+		getSpeed: function(){
+			return new Error("抽象方法不能调用");
+		},
+		getSpeed: function(){
+			return new Error("抽象方法不能调用");
+		}		
+	};
+
+	// 火车抽象类
+	VehicleFactory.Truck = function(){
+		this.type = "truck";
+	};
+
+	VehicleFactory.Truck.prototype = {
+		getSpeed: function(){
+			return new Error("抽象方法不能调用");
+		},
+		getSpeed: function(){
+			return new Error("抽象方法不能调用");
+		}
+	};
+
+</script>
+</html>
