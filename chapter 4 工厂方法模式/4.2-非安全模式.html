@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	
+	var Demo = function(name) {
+		this.name = name;
+	};
+
+	Demo.prototype = {
+		show: function(){
+			alert(1)
+		},
+	};
+
+	var demo = new Demo("hyg");
+	demo.show();
+
+	var demo2 =  Demo("hyg");
+	console.log(demo2);    //undefined 未使用new关键字实例化对象 && 程序未作安全模式处理时  =>  undefined
+</script>
+</html>

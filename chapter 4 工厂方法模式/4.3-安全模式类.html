@@ -9,29 +9,15 @@
 </body>
 <script type="text/javascript">
 	
-	var Demo = function(name) {
-		this.name = name;
-	};
-
-	Demo.prototype = {
-		show: function(){
-			alert(1)
-		},
-	};
-
-	var demo = new Demo("hyg");
-	// demo.show();
-
-	var demo2 =  Demo("hyg");
-	console.log(demo2);  // undefined => 不安全模式
-
 	// => 改变成安全模式
 
 	function Box(name) {
-		console.log(this);
+	
 		if(!(this instanceof Box)){
 			this.name = name;
 			return new Box(name);
+		} else {
+			this.name = name;
 		}
 	}
 
@@ -39,7 +25,8 @@
 		console.log(this.name);
 	};
 
-	var box = new Box('gaoxiong');
-	console.log(box);
+	var box =  Box('gaoxiong'); // 未使用 new 也能达到目的
+	box.show();
+
 </script>
 </html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	
+	//安全模式创建工厂类
+	var Factory = function(type, content) {
+		if(this instanceof Factory) {
+			var o = this[type](content);
+			return o;
+		} else {
+			return new Factory(type,content);
+		};
+	};
+
+	//工厂原型中设置创建所有类型数据对象的基类
+	Factory.prototype = {
+		Java: function(content) {
+			console.log("Java")
+		},
+		Javascript: function(content) {
+			console.log("Javascript");
+		},
+		UI: function(content) {
+			this.content = content;
+			(function(cnt){
+				var div = document.createElement("div");
+				div.innerHTML = cnt;
+				div.style.border = "1px solid red";
+				div.style.color = "blue";
+				document.getElementsByTagName("body")[0].appendChild(div);
+			})(content);
+		},
+		Php: function(content){
+			console.log("Php")
+		}
+	};
+	
+	var data = [
+		{
+			type: "Javascript",
+			content: "Javascript哪家强"
+		},{
+			type: "Java",
+			content: "Java哪家强"
+		},{
+			type: "Php",
+			content: "Php哪家强"
+		},{
+			type: "UI",
+			content: "UI哪家强"
+		}
+	];
+
+	for( var i = data.length - 1 ; i >= 0 ; i-- ){
+		Factory(data[i].type, data[i].content);
+	};
+	
+</script>
+</html>
