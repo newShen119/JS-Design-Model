@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1 id="h1">使用命名空间</h1>
+</body>
+<script type="text/javascript">
+	var jQuery = {
+		getBydId: function(id){
+			return document.getElementById(id);
+		},
+		setCss: function(id, key, value){
+			getBydId(id).style[key] = value;
+		}
+	};
+
+	console.log(jQuery);
+
+	jQuery.setCss('h1','color','red');
+
+</script>
+</html>

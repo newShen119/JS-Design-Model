@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>滑动特效</h1>
+</body>
+<script type="text/javascript">
+	
+	function getById(id){
+		return document.getElementById(id);
+	};
+
+	function setCss(id, key, value){
+		getById(id).style[key] = value;
+	};
+
+	function setAttr(id, key, value){
+		getById(id)[key] = value;
+	}
+
+	function html(id, value){
+		getById(id).innerHTML = value;
+	}
+
+	// 缺点: 添加了太多了全局变量、
+</script>
+</html>
