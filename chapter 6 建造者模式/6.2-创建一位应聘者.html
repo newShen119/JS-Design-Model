@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+
+	// 创建一个类 Human
+	var Human = function(params){
+		this.skill = params && params.skill || "保密";
+		this.hobby = params && params.hobby || "保密"
+	};
+
+	// 设置 Human类的原型对象
+	Human.prototype = {
+
+		// 获取技能
+		getSkill: function(){
+			return this.skill;
+		},
+
+		// 获取爱好
+		getHobby: function(){
+			return this.hobby;
+		}
+	};
+
+	// 实例化姓名类
+	var Named = function(name){
+		var _this = this;
+		// 构造函数解析姓名的姓与名
+		(function(name, _this){
+			_this.wholeName = name;
+			if( name.indexOf(' ') > -1 ){
+				_this.firstName = name.slice(0, name.indexOf(' '));
+				_this.secondName = name.slice(name.indexOf(' '));
+			}
+		})(name, _this);
+	};
+
+	// 实例化职位类
+	var Work = function(work){
+		var _this = this;
+		// 构造函数中通过传入的职位特征来设置相应职位以及描述
+		(function(work, _this){
+			switch(work){
+				case 'code':
+					_this.work = '工程师';
+					_this.workDescript = '喜欢敲代码';
+				case 'UI':
+					_this.work = '设计师';
+					_this.workDescript = '喜欢画图';
+				default :
+					_this.work = work;
+					_this.workDescript = '对不起，我们还不清楚您的职位相关描述'
+			}
+		})(work, _this);
+	};
+
+	//更换期望的职位
+	Work.prototype.changeWork = function(work){
+		this.work = work;
+	};
+
+	// 添加对未知的描述
+	Work.prototype.changeDescript = function(sentence){
+		this.workDescript = sentence;
+	};
+
+
+
+	/******
+	 * 应聘者建造者
+	 * param name: 姓名（全名）
+	 * param worl: 期望职位
+	 **/
+	 var Person = function(name, work){
+	 	// 创建应聘者缓存对象
+	 	var person = new Human();
+	 	// 创建应聘者解析对象
+	 	person.name = new Named(name);
+	 	// 创建应聘者期望职位
+	 	person.work = new Work(work);
+	 	// 将创建的应聘者对象返回
+	 	return person;
+	 }
+
+	 var person = new Person('xiao ming', 'code');
+	 console.log(person);
+
+</script>
+</html>
