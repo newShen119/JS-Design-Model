@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+
+	// 对重写原型对象的属性进行重写
+	var CheckObj = function() {};
+	CheckObj.prototype.checkName = function() {
+		console.log('checkName');
+	};
+	CheckObj.prototype.checkEmail = function() {
+		console.log('checkEmail');
+	};
+	CheckObj.prototype.checkPassword = function() {
+		console.log('checkPassword');
+	};
+
+	var obj = new CheckObj();
+	console.log(obj);
+
+	// 重写原型对象
+	CheckObj.prototype = {
+		checkName: function() {
+			console.log('checkName');
+		},
+		checkEmail: function() {
+			console.log('checkEmail');
+		},
+		checkPassword: function() {
+			console.log('checkPassword');
+		}
+	};
+</script>
+</html>

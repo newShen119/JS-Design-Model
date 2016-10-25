@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+
+	var checkObj = function() {
+		this.checkName = function() {
+			console.log('checkName');
+		};
+		this.checkEmail = function() {
+			console.log('checkEmail');
+		};
+		this.checkPassword = function() {
+			console.log('checkPassword');
+		}
+	};
+
+	var obj = new checkObj();
+	console.log(obj);
+
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+
+	//不要污染原生对象 : 实例对象没有prototype属性 : 只有函数对象有 prototype 属性
+	Function.prototype.addMethod = function(name, fn) {
+		this.prototype[name] = fn;
+		return this;
+	};
+
+	var obj = new Function;
+	obj.addMethod('checkName',function(){
+		console.log('checkName');
+		return this;
+	}).addMethod('checkEmail', function(){
+		console.log('checkEmail');
+		return this;
+	})
+
+	var box = new obj();
+	console.log(box);
+	box.checkName();
+	
+</script>
+</html>
