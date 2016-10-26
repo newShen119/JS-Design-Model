@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>静态变量的特点：只能访问，不能修改</h1>
+	<h1>在js中 无 static 等关键字。所以定义任何变量理论上都是可以修改的，所以在js中实现创建静态变量变得很重要</h1>
+	<h1>不能修改 => 不能定义在全局空间里面 => 定义在一个函数的内部</h1>
+	<h1>需要能够访问：=> 定义一个特权方法访问</h1>
+</body>
+<script type="text/javascript">
+
+	//创建静态变量：只能获取不能修改
+	var Conf = (function(){
+		//私有变量
+		var conf = {          
+			max_num: 100,
+			min_num: 10,
+			count: 90
+		};
+		// 返回取值器对象
+		return {
+			//取值方法
+			get : function(name){
+				return conf[name] ? conf[name] : null;
+			}
+		};
+	})();
+
+	console.log(Conf);
+	var count = Conf.get('count');
+	console.log(count);
+
+	function bb(){
+		var xx = 5;
+	};
+
+
+</script>
+</html>

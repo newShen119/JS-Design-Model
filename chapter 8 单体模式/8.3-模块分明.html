@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>
+			<h2 id="h2">在javascript中单例模式中除了定义命名空间意外，还可以通过单例模式来管理代码库的哥哥模块</h2>
+		</li>
+	</ul>
+</body>
+<script type="text/javascript">
+
+	// 例如：早期的百度都是通过单例模式来控制自己的每个功能模块的，当给元素添加一个类或者插入一个元素时，会被放入dom模块。
+	var baidu = {
+
+	};
+
+	baidu.dom = {
+		getById: function(id){
+			return document.getElementById(id);
+		},
+		addClass: function(id, className){
+			this.getById(id).className = className;
+			console.log(this);
+		},
+	};
+
+	console.log(baidu);
+	baidu.dom.addClass('h2', 'h2');
+
+</script>
+</html>

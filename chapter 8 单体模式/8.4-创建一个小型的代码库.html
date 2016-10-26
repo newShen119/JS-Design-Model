@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var gx = {
+
+		ajax: {
+			get:function(){
+				console.log(arguments.callee.name);
+			},
+			post:function(){
+				console.log(arguments.callee.name);
+			}
+		},
+
+		tools: {
+			tools1: function(){
+				console.log(arguments.callee.name);
+			},
+			tools2: function(){
+				console.log(arguments.callee.name);
+			}
+		}
+	};
+
+	gx.ajax.get();
+	gx.ajax.post();
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+
+	var Human = function(param){
+		this.skill = param && param.skill || "保密";
+		this.hobby = param && param.hobby || "保密";
+	};
+
+	Human.prototype = {
+		getSkill: function(){
+			return this.skill;
+		},
+		getHobby: function(){
+			return this.hobby;
+		}
+	};
+
+	var Named = function(name){
+		var _this = this;
+		//构造器 构造函数解析姓名的姓与名
+		(function(){
+			_this.wholeName = name;
+		})();
+	};
+</script>
+</html>
