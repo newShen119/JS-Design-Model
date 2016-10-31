@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>提供一个更简单的高级API，简化对复杂的底层接口不统一的使用需求 => 外观模式</h1>
+</body>
+<script type="text/javascript">
+	function addEvent(dom, type, handler) {
+		if(dom.addEventListener) {
+			dom.addEventListener(type, handler, false);			
+		} else if ( dom.attachEvent) {
+			dom.attachEvent('on' + type, handler);
+		} else {
+			dom['on' + type] = handler;
+		}
+	};
+	addEvent(document, 'click', function(){
+		alert(1);
+	})
+	addEvent(document, 'click', function(){
+		alert(2);
+	})
+</script>
+</html>
