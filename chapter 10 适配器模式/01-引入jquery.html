@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h2 id="h2">通过适配器模式解决代码冲突</h2>
+</body>
+<script src="../libs/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+	var dudu = {
+		// 通过id获取元素
+		getById: function(id) {
+			return document.getElementById(id);
+		},
+		//设置元素的css
+		css: function(id, key, value) {
+			document.getElementById(id).getById(id).style[key] = value;
+		},
+		// 设置元素属性
+		attr: function(id, key, value) {
+			document.getElementById(id).getById(id).setAttribute(key, value);
+		},
+		html: function(id, html) {
+			document.getElementById(id).getById(id).innerHTML = html;
+		},
+		// 为元素绑定事件
+		on: function(id, type, handler) {
+			document.getElementById(id).getById(id)[ 'on' + type ] = handle;
+		}
+	};
+
+	window.dudu = dudu = jQuery;
+
+	jQuery.css('h2', 'color', 'blue');
+
+
+
+</script>
+</html>

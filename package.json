@@ -1,0 +1,19 @@
+{
+  "name": "js-design-model",
+  "version": "1.0.0",
+  "description": "javascript design model",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newShen119/JS-Design-Model.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/newShen119/JS-Design-Model/issues"
+  },
+  "homepage": "https://github.com/newShen119/JS-Design-Model#readme"
+}
