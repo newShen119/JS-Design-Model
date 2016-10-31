@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1 id="h1">虽然外观模式可以将浏览器不兼容的方法变得简单，然而这只是外观模式的一部分，很多代码库都是通过外观模式来封装多个功能，简化底层操作方法。比如我们封装一个简约版获取元素属性样式的方法库</h1>
+</body>
+<script type="text/javascript">
+	var dudu = {
+		// 通过id获取元素
+		getById: function(id) {
+			return document.getElementById(id);
+		},
+		//设置元素的css
+		css: function(id, key, value) {
+			this.getById(id).style[key] = value;
+		},
+		// 设置元素属性
+		attr: function(id, key, value) {
+			this.getById(id).setAttribute(key, value);
+		},
+		html: function(id, html) {
+			this.getById(id).innerHTML = html;
+		},
+		// 为元素绑定事件
+		on: function(id, type, handler) {
+			this.getById(id)[ 'on' + type ] = handle
+		}
+	};
+
+	dudu.css('h1', 'color', 'red');
+	dudu.attr('h1', 'class', 'h1');
+</script>
+</html>

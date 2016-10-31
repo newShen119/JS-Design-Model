@@ -8,6 +8,7 @@
 	<h1>提供一个更简单的高级API，简化对复杂的底层接口不统一的使用需求 => 外观模式</h1>
 </body>
 <script type="text/javascript">
+	//绑定事件
 	function addEvent(dom, type, handler) {
 		if(dom.addEventListener) {
 			dom.addEventListener(type, handler, false);			
@@ -23,5 +24,24 @@
 	addEvent(document, 'click', function(){
 		alert(2);
 	})
+	//获取事件对象
+	var getEvent = function(event) {
+		return event || window.event;
+	};
+	//获取元素
+	var getTarget = function(event) {
+		var event = getEvent(event);
+		return event.target || event.srcElement;
+	};
+	//阻止默认行为
+	var preventDefault = function() {
+		var event = getEvent();
+		if( event.preventDefault ) {
+			event.preventDefault();
+		} else {
+			event.returnValue = false;
+		}
+	};
+
 </script>
 </html>
