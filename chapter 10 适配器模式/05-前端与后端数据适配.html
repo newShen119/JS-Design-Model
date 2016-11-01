@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+
+	// 数据适配器解决你了前端对后端数据依赖的问题，如果后端因为架构改变或者传递的数据结构发生改变，前端人员只有写一个适配器来更改，保证前端人员在使用数据的时候 数据结构的一致性 案例：
+	function dataAdapter(data) {
+		return {
+			// 将 data 的数据结构进行更改
+		};
+	};
+
+	$.ajax({
+		url: "someWhere.php",
+		success: function(data, status) {
+			if(data){
+				dataAdapter(data)
+			};
+		}
+	});
+</script>
+</html>

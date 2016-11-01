@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+
+	// 以下方法需要传递很多参数
+	function doSomething(name, title, age, color) {
+
+	};
+
+	// 记住这些参数是很困难的，调用的时候不知道参数是否完整，而且有一些参数是有默认值的
+	function doSomething(options) {
+
+		console.log("传入：" , options );
+		var defaults = {
+			name: "gaoxiong",
+			age: "23",
+			color: "blue",
+			size: "165cm"
+		};
+		console.log("默认：" , defaults );
+		for ( var attr in defaults ) {
+			defaults[attr] = options[attr] || defaults[attr];  // defaults 不能接受一个来自于 options的属性，这个属性在defaults中未定义
+		}
+		console.log("结果：" , defaults );
+		//这种方式很常见，很多库配置参数都是这么做的，比如jQuery
+	};
+
+	doSomething({
+		age: 25,
+		weight: 50
+	});
+</script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>适配模式</h1>
+	<div id="h1">适配模式</div>
+</body>
+<script src="../libs/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+
+	// 定义框架
+	var dudu = dudu || {};
+
+	// 通过 id 获取元素
+	dudu.getById = function(id) {
+		return document.getElementById(id);
+	};
+
+	//为元素绑定事件
+	dudu.on = function(id, type, handler) {
+		//如果传入的参数是字符串则以id处理，否则以元素对象处理
+		var dom = typeof id === 'string' ? this.getById(id) : id;
+		if (dom.addEventListener){
+			dom.addEventListener(type, handler, false);
+		} else if (dom.attachEvent){
+			dom.attachEvent('on' + type, handler);
+		} else {
+			dom[ 'on' + type ] = handler;
+		}
+	}
+
+	//使用dudu 库
+	dudu.on(window, 'load', function(){
+		dudu.on('h1', 'click', function(){
+			alert(1);
+		})
+	});
+
+	// 接下来我们要使用 jquery 库
+	dudu.getById = function(id){
+		return $('#'+id).get(0);
+	};
+
+	dudu.on = function(id, type, handle){
+		var dom = typeof id === 'string' ? $('#'+id) : $(id);
+		dom.on(type, handle);
+	};
+
+	var dom = dudu.getById('h1');
+	console.log(dom);
+
+	dudu.on(document,'click',function(){
+		dudu.getById('h1').style.color = 'red';
+	});
+</script>
+</html>

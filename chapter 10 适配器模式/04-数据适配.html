@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	//将数组适配为对象
+	var array = ["Javascript", "book", "前端变成语言", "2015-7-10"];
+	function arrayToObject(array) {
+		return {
+			name: array[0],
+			type: array[1],
+			title: array[2],
+			time: array[3]
+		};
+	};
+	var object = arrayToObject(array);
+	console.log(object);
+
+</script>
+</html>
