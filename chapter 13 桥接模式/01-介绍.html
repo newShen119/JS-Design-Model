@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>桥接模式：在系统沿着多个维度变化的同时，又不增加其复杂度并已达到解耦。有些页面中的小细节改变常常因逻辑相似而导致大片臃肿的代码，让页面看起来苦涩不堪</h1>
+	<span>数学</span>
+	<strong>1</strong>
+	<span>数学</span>
+	<strong>1</strong>
+	<span>数学</span>
+	<strong>1</strong>
+	<span>数学</span>
+</body>
+<script type="text/javascript">
+
+	var spans = document.getElementsByTagName('span');
+	spans[0].onmouseover = function(){
+		this.style.color = 'red';
+		this.style.background = '#ddd';
+	}
+	spans[0].onmouseout = function(){
+		this.style.color = '#333';
+		this.style.background = '#f5f5f5';
+	}
+
+	var strongs = document.getElementsByTagName('strong');
+	strongs[0].onmouseover = function(){
+		this.style.color = 'red';
+		this.style.background = '#ddd';
+	}
+	strongs[0].onmouseout = function(){
+		this.style.color = '#333';
+		this.style.background = '#f5f5f5';
+	}
+
+	// 代码看起来冗余
+</script>
+</html>
